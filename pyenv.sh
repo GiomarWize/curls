@@ -1,9 +1,9 @@
 #!/bin/bash
+set -e
 # Updated Script
 # Vars
 libssl_package="libssl1.0-dev" # set to "libssl1.0-dev" if pyenv show any Python SSL error in python install versions.
 pyenv_dependencies="make build-essential ${libssl_package} zlib1g-dev bzip2 libreadline-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev"
-pyenv_dependencies=“build-essential libssl1.0-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git”
 python_versions_arr=("3.5.2" "3.6.13" "3.7.10" "3.8.9" "3.9.4")
 
 # Install pyenv dependencies
