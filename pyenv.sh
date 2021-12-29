@@ -7,7 +7,7 @@ python_versions_arr=("3.6.13" "3.7.10" "3.8.9" "3.9.4")
 
 # Install pyenv dependencies
 pyenv_dep(){
- sudo apt-get install -y "${1}"
+ sudo apt-get install -y "${pyenv_dependencies}"
 }
 pyenv_install(){
   if [[ -d $HOME/.pyenv/ ]]; then
