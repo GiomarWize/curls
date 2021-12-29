@@ -2,16 +2,11 @@
 set -e
 # Updated Script
 # Vars
-libssl_package="libssl1.0-dev" # set to "libssl1.0-dev" if pyenv show any Python SSL error in python install versions.
-pyenv_dependencies="make build-essential ${libssl_package} zlib1g-dev bzip2 libreadline-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev"
-python_versions_arr=("3.5.2" "3.6.13" "3.7.10" "3.8.9" "3.9.4")
+pyenv_dependencies="make build-essential libssl-dev zlib1g-dev bzip2 libreadline-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev"
+python_versions_arr=("3.6.13" "3.7.10" "3.8.9" "3.9.4")
 
 # Install pyenv dependencies
 pyenv_dep(){
- if [[ $libssl_package=="libssl1.0-dev" && -z $(cat /etc/apt/sources.list | grep bionic-security) ]]; then
-  sudo echo "deb http://security.ubuntu.com/ubuntu/ bionic-security main restricted" >> /etc/apt/sources.list
-  sudo apt update && sudo apt-cache policy "${libssl_package}"
- fi 
  sudo apt-get install -y "${1}"
 }
 pyenv_install(){
