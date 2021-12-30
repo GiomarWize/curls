@@ -26,7 +26,7 @@ liblzma-dev"
 python_versions_arr=("3.6.13" "3.7.10" "3.8.9" "3.9.4")
 
 pyenv_dep(){
- sudo apt-get install -y "$1"
+  sudo apt-get install -y "$1"
 }
 
 pyenv_install(){
@@ -74,11 +74,11 @@ python_versions_setglobally(){
 }
 
 pyenv(){
- pyenv_dep "${pyenv_dependencies}"
- pyenv_install
- pyenv_post_install
- pyenv_versions_install "${python_versions_arr[@]}"
- python_versions_setglobally "${python_versions_arr[@]}"
+  pyenv_dep "${pyenv_dependencies}"
+  pyenv_install
+  pyenv_post_install
+  pyenv_versions_install "${python_versions_arr[@]}"
+  python_versions_setglobally "${python_versions_arr[@]}"
 }
 
 pyenv
