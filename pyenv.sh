@@ -41,7 +41,7 @@ pyenv_install(){
 }
 
 pyenv_post_install(){
-cat <<EOT >> greetings.txt
+cat <<EOT >> "$HOME"/.bashrc
 # pyenv Config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
