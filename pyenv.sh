@@ -64,12 +64,17 @@ python_versions_setglobally(){
   "$HOME"/.pyenv/bin/pyenv global "$@"
 }
 
+clean(){
+  sudo rm "$HOME"/pyenv_installer.sh "$HOME"/pyenv.sh
+}
+
 pyenv(){
   pyenv_dep
   pyenv_install
   pyenv_post_install
   pyenv_versions_install "${python_versions_arr[@]}"
   python_versions_setglobally "${python_versions_arr[@]}"
+  clean
 }
 
 pyenv
