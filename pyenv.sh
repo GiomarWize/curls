@@ -19,11 +19,13 @@
 #
 set -euo pipefail
 
-pyenv_dependencies="make build-essential libssl-dev zlib1g-dev bzip2 libreadline-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev"
 python_versions_arr=("3.6.13" "3.7.10" "3.8.9" "3.9.4")
 
 pyenv_dep(){
-  sudo apt-get install -y "$1"
+  sudo apt-get update -y
+  sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 }
 
 pyenv_install(){
