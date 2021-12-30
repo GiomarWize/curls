@@ -41,15 +41,17 @@ pyenv_install(){
 }
 
 pyenv_post_install(){
-echo"
-# pyenv Config
-export PYENV_ROOT=\"$HOME/.pyenv\"
-export PATH=\"$PYENV_ROOT/bin:$PATH\"
-if which pyenv > /dev/null; then
-  eval \"$(pyenv init -)\"
-  eval \"$(pyenv init --path)\"
-  eval \"$(pyenv virtualenv-init -)\"
-fi" >> "$HOME"/.bashrc
+  {
+    echo "# pyenv Config" 
+    echo "export PYENV_ROOT=\"$HOME/.pyenv\""
+    echo "export PATH=\"$PYENV_ROOT/bin:$PATH\""
+    echo "if which pyenv > /dev/null; then"
+    echo "  eval \"$(pyenv init -)\""
+    echo "  eval \"$(pyenv init --path)\""
+    echo "  eval \"$(pyenv virtualenv-init -)\""
+    echo "fi"         
+  } >> "$HOME"/.bashrc
+
 }
 
 pyenv_versions_install(){
