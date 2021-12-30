@@ -42,7 +42,6 @@ pyenv_install(){
 
 pyenv_post_install(){
 cat <<EOT >> greetings.txt
-
 # pyenv Config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -73,7 +72,7 @@ python_versions_setglobally(){
 }
 
 pyenv(){
-  pyenv_dep "${pyenv_dependencies}"
+  pyenv_dep
   pyenv_install
   pyenv_post_install
   pyenv_versions_install "${python_versions_arr[@]}"
