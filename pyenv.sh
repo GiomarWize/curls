@@ -41,9 +41,6 @@ pyenv_install(){
 }
 
 pyenv_post_install(){
-  eval "$(pyenv init -)"
-  eval "$(pyenv init --path)"
-  eval "$(pyenv virtualenv-init -)"
   {
     echo '# pyenv Config'
     echo 'export PYENV_ROOT="$HOME/.pyenv"'
@@ -69,6 +66,8 @@ python_versions_setglobally(){
 
 clean(){
   sudo rm "$HOME"/pyenv_installer.sh
+  echo -e "\nRestart your shell so the path changes take effect"
+  echo "    'exec $SHELL'" 
 }
 
 pyenv(){
