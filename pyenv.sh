@@ -65,7 +65,7 @@ python_versions_setglobally(){
 }
 
 clean(){
-  sudo rm "$HOME"/pyenv_installer.sh "$HOME"/pyenv.sh
+  sudo rm "$HOME"/pyenv_installer.sh
   source "$HOME"/.bashrc
 }
 
