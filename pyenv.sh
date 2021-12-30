@@ -51,7 +51,6 @@ pyenv_post_install(){
     echo '  eval "$(pyenv virtualenv-init -)"'
     echo 'fi'
   } >> "$HOME"/.bashrc
-
 }
 
 pyenv_versions_install(){
@@ -62,14 +61,7 @@ pyenv_versions_install(){
 }
 
 python_versions_setglobally(){
-  arr=("$@")
-  versions=""
-  for ver in "${arr[@]}"; do
-    if "$HOME"/.pyenv/bin/pyenv versions | grep -q "${ver}"; then
-      versions+="${ver} "
-    fi
-  done
-  "$HOME"/.pyenv/bin/pyenv global "${versions[@]}"
+  "$HOME"/.pyenv/bin/pyenv global "$@"
 }
 
 pyenv(){
