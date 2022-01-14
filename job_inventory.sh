@@ -135,6 +135,7 @@ run_job_inventory(){
   check_jenkins_tools
   check_installed_CLI
   check_maven
+  check_env
   check_python_venv
   check_docker
   check_temp_files
