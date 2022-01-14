@@ -22,26 +22,58 @@ python_versions_arr=("3.8" "3.6" "3.7" "3.9" "3.10")
 SPARK_LOCAL_IP=127.0.0.1
 SETUPTOOLS_USE_DISTUTILS=stdlib
 
-ls /home/jenkins/tools
-ls /home/jenkins/tools/*
-python --version || echo "python not found"
-python3 --version || echo "python3 not found"
-for version in "${python_versions_arr[@]}"; do
-  python${version} --version || echo "\"python${version} not found\""
-done
-/home/jenkins/tools/maven/latest/mvn -v || echo "mvn not found"
-/home/jenkins/tools/gradle4.3/gradle -v || echo "gradle not found"
-gcloud -v || echo "gcloud not found"
-kubectl version || echo "kubectl not found"
-for version in "${python_versions_arr[@]}"; do
-    versionSuffix = $( echo "$version" | sed -e 's/\.//g' )
-  python${version} -m venv test${versionSuffix} && . ./test${versionSuffix}/bin/activate && python --version && deactivate || echo \"python ${version} not found\"
-done
-echo "Maven home $MAVEN_HOME"
-env
-docker system prune --all --filter until=24h --force
-docker volume prune --force
-echo "Current size of /tmp dir is $(sudo du -sh /tmp)"
-echo "Deleting files accessed later than \${tmp_unaccessed_for} hours ago"
-sudo find /tmp -type f -amin +$((60*${tmp_unaccessed_for})) -print -delete
-echo "Size of /tmp dir after cleanup is \$(sudo du -sh /tmp)"
+check_folders(){
+  ls /home/jenkins/tools
+  ls /home/jenkins/tools/*
+}
+
+check_python_versions(){
+  python --version || echo "python not found"
+  python3 --version || echo "python3 not found"
+  for version in "${python_versions_arr[@]}"; do
+    python${version} --version || echo "\"python${version} not found\""
+  done
+  for version in "${python_versions_arr[@]}"; do
+    versionSuffix=$(echo "$version" | sed -e 's/\.//g')
+    python${version} -m venv test${versionSuffix} && . ./test${versionSuffix}/bin/activate && python --version && deactivate || echo \"python ${version} not found\"
+  done
+}
+
+check_jenkins_tools(){
+  /home/jenkins/tools/maven/latest/mvn -v || echo "mvn not found"
+  /home/jenkins/tools/gradle4.3/gradle -v || echo "gradle not found"
+}
+
+check_installed_CLI(){
+  gcloud -v || echo "gcloud not found"
+  kubectl version || echo "kubectl not found"
+}
+
+check_maven(){
+  echo "Maven home $MAVEN_HOME"
+  env
+}
+
+check_docker(){
+  docker system prune --all --filter until=24h --force
+  docker volume prune --force
+}
+
+check_temp_files(){
+  echo "Current size of /tmp dir is $(sudo du -sh /tmp)"
+  echo "Deleting files accessed later than \${tmp_unaccessed_for} hours ago"
+  sudo find /tmp -type f -amin +$((60*${tmp_unaccessed_for})) -print -delete
+  echo "Size of /tmp dir after cleanup is \$(sudo du -sh /tmp)"
+}
+
+run_job_inventory(){
+  check_folders
+  check_python_versions
+  check_jenkins_tools
+  check_installed_CLI
+  check_maven
+  check_docker
+  check_temp_files
+}
+
+run_job_inventory
