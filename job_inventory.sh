@@ -125,7 +125,7 @@ check_docker(){
 check_temp_files(){
   echo "Current size of /tmp dir is $(sudo du -sh /tmp)"
   echo "Deleting files accessed later than \${tmp_unaccessed_for} hours ago"
-  sudo find /tmp -type f -amin +$((60*${tmp_unaccessed_for})) -print -delete
+  sudo find /tmp -type f -amin +$((60 * ${tmp_unaccessed_for} )) -print -delete
   echo "Size of /tmp dir after cleanup is \$(sudo du -sh /tmp)"
 }
 
