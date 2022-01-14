@@ -17,8 +17,7 @@
 #
 #    Python versions installer via pyenv.
 #
-set -euo pipefail
-python_versions_arr=("3.8" "3.6" "3.7" "3.9" "3.10")
+python_versions_arr=("3.6" "3.7" "3.8" "3.9" "3.10")
 SPARK_LOCAL_IP=127.0.0.1
 SETUPTOOLS_USE_DISTUTILS=stdlib
 
@@ -53,7 +52,7 @@ check_maven(){
 check_python_venv(){
   for version in "${python_versions_arr[@]}"; do
     versionSuffix=$(echo "$version" | sed -e 's/\.//g')
-    python${version} -m venv test${versionSuffix} && . ./test${versionSuffix}/bin/activate && python --version && deactivate || echo \"python ${version} not found\"
+    python${version} -m venv test${versionSuffix} && . ./test${versionSuffix}/bin/activate && python --version && deactivate || echo "\"python ${version} not found\""
   done
 }
 
