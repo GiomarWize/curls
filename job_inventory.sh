@@ -33,10 +33,6 @@ check_python_versions(){
   for version in "${python_versions_arr[@]}"; do
     python${version} --version || echo "\"python${version} not found\""
   done
-  for version in "${python_versions_arr[@]}"; do
-    versionSuffix=$(echo "$version" | sed -e 's/\.//g')
-    python${version} -m venv test${versionSuffix} && . ./test${versionSuffix}/bin/activate && python --version && deactivate || echo \"python ${version} not found\"
-  done
 }
 
 check_jenkins_tools(){
@@ -52,6 +48,13 @@ check_installed_CLI(){
 check_maven(){
   echo "Maven home $MAVEN_HOME"
   env
+}
+
+check_python_venv(){
+  for version in "${python_versions_arr[@]}"; do
+    versionSuffix=$(echo "$version" | sed -e 's/\.//g')
+    python${version} -m venv test${versionSuffix} && . ./test${versionSuffix}/bin/activate && python --version && deactivate || echo \"python ${version} not found\"
+  done
 }
 
 check_docker(){
@@ -72,6 +75,7 @@ run_job_inventory(){
   check_jenkins_tools
   check_installed_CLI
   check_maven
+  check_python_venv
   check_docker
   check_temp_files
 }
