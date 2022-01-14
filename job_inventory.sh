@@ -65,7 +65,7 @@ check_env(){
   RUN_CHANGES_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect?page=changes
   USER=jenkins
   RUN_ARTIFACTS_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect?page=artifacts
-  CODECOV_TOKEN=****
+  CODECOV_TOKEN=""
   GIT_CHECKOUT_DIR=src
   GIT_COMMIT=a3bf36eae08a7e31ec862674180466166b9cf501
   JENKINS_HOME=/home/jenkins/jenkins-home
@@ -74,7 +74,7 @@ check_env(){
   RUN_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect
   _=/usr/bin/env
   PWD=/home/jenkins/jenkins-slave/workspace/beam_Inventory_apache-beam-jenkins-1
-  COVERALLS_REPO_TOKEN=****
+  COVERALLS_REPO_TOKEN=""
   JAVA_HOME=/home/jenkins/tools/java/latest1.8
   HUDSON_URL=https://ci-beam.apache.org/
   LANG=en_US.UTF-8
