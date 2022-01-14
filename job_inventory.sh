@@ -49,6 +49,67 @@ check_maven(){
   env
 }
 
+check_env(){
+  BUILD_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/
+  tmp_unaccessed_for=48
+  XDG_SESSION_ID=255
+  ROOT_BUILD_CAUSE_TIMERTRIGGER=true
+  HUDSON_SERVER_COOKIE=14925adb602d4986
+  SHELL=/bin/bash
+  SSH_CLIENT=3.94.149.17 49444 22
+  BUILD_TAG=jenkins-beam_Inventory_apache-beam-jenkins-1-1576
+  GIT_PREVIOUS_COMMIT=872455570ae7f3e2e35360bccf93b503ae9fdb5c
+  ROOT_BUILD_CAUSE=TIMERTRIGGER
+  WORKSPACE=/home/jenkins/jenkins-slave/workspace/beam_Inventory_apache-beam-jenkins-1
+  JOB_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/
+  RUN_CHANGES_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect?page=changes
+  USER=jenkins
+  RUN_ARTIFACTS_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect?page=artifacts
+  CODECOV_TOKEN=****
+  GIT_CHECKOUT_DIR=src
+  GIT_COMMIT=a3bf36eae08a7e31ec862674180466166b9cf501
+  JENKINS_HOME=/home/jenkins/jenkins-home
+  MAIL=/var/mail/jenkins
+  PATH=/home/jenkins/tools/java/latest1.8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+  RUN_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect
+  _=/usr/bin/env
+  PWD=/home/jenkins/jenkins-slave/workspace/beam_Inventory_apache-beam-jenkins-1
+  COVERALLS_REPO_TOKEN=****
+  JAVA_HOME=/home/jenkins/tools/java/latest1.8
+  HUDSON_URL=https://ci-beam.apache.org/
+  LANG=en_US.UTF-8
+  JOB_NAME=beam_Inventory_apache-beam-jenkins-1
+  BUILD_DISPLAY_NAME=#1576
+  sha1=master
+  BUILD_CAUSE=TIMERTRIGGER
+  BUILD_ID=1576
+  JENKINS_URL=https://ci-beam.apache.org/
+  JOB_BASE_NAME=beam_Inventory_apache-beam-jenkins-1
+  GIT_PREVIOUS_SUCCESSFUL_COMMIT=872455570ae7f3e2e35360bccf93b503ae9fdb5c
+  RUN_TESTS_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/1576/display/redirect?page=tests
+  HOME=/home/jenkins
+  SPARK_LOCAL_IP=127.0.0.1
+  SHLVL=2
+  GIT_BRANCH=origin/master
+  CI=true
+  EXECUTOR_NUMBER=2
+  WORKSPACE_TMP=/home/jenkins/jenkins-slave/workspace/beam_Inventory_apache-beam-jenkins-1@tmp
+  JENKINS_SERVER_COOKIE=14925adb602d4986
+  GIT_URL=https://github.com/apache/beam.git
+  NODE_LABELS=apache-beam-jenkins-1 beam
+  LOGNAME=jenkins
+  SSH_CONNECTION=3.94.149.17 49444 10.128.0.128 22
+  HUDSON_HOME=/home/jenkins/jenkins-home
+  SETUPTOOLS_USE_DISTUTILS=stdlib
+  NODE_NAME=apache-beam-jenkins-1
+  BUILD_CAUSE_TIMERTRIGGER=true
+  BUILD_NUMBER=1576
+  JOB_DISPLAY_URL=https://ci-beam.apache.org/job/beam_Inventory_apache-beam-jenkins-1/display/redirect
+  TEST_HOST=apache-beam-jenkins-1
+  XDG_RUNTIME_DIR=/run/user/1017
+  HUDSON_COOKIE=3b098e87-9e7a-413d-ba7e-7900701408c6
+}
+
 check_python_venv(){
   for version in "${python_versions_arr[@]}"; do
     versionSuffix=$(echo "$version" | sed -e 's/\.//g')
