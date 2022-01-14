@@ -46,7 +46,7 @@ check_installed_CLI(){
 }
 
 check_maven(){
-  echo "Maven home $MAVEN_HOME"
+  echo "Maven home ${MAVEN_HOME:-}"
   env
 }
 
