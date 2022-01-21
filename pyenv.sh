@@ -45,14 +45,14 @@ pyenv_post_install(){
   if ! < "$HOME"/.bashrc grep -q "# pyenv Config" ; then
     {
       echo '# pyenv Config'
-      echo 'export PYENV_ROOT="$HOME/.pyenv"'
+      echo 'export PYENV_ROOT="/home/jenkins/.pyenv"'
       echo 'export PATH="$PYENV_ROOT/bin:$PATH"'
       echo 'if which pyenv > /dev/null; then'
       echo '  eval "$(pyenv init -)"'
       echo '  eval "$(pyenv init --path)"'
       echo '  eval "$(pyenv virtualenv-init -)"'
       echo 'fi'
-    } >> "$HOME"/.bashrc
+    } >> /etc/bash.bashrc
   fi
 }
 
