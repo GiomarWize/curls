@@ -42,7 +42,7 @@ pyenv_install(){
 }
 
 pyenv_post_install(){
-  if ! < "$HOME"/.bashrc grep -q "# pyenv Config" ; then
+  if ! < /etc/bash.bashrc grep -q "# pyenv Config" ; then
     {
       echo '# pyenv Config'
       echo 'export PYENV_ROOT="/home/jenkins/.pyenv"'
