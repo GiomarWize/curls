@@ -68,7 +68,7 @@ python_versions_setglobally(){
 clean(){
   sudo rm "$HOME"/pyenv_installer.sh
   echo -e "\nDone!"
-  echo "pyenv has been installed along with the following $(pyenv global) versions of the Python interpreter."
+  echo "pyenv has been installed along with the following versions of the Python interpreter:\n$(pyenv global)"
 }
 
 # Install pyenv environment with python versions
