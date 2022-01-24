@@ -42,7 +42,7 @@ pyenv_install(){
 }
 
 pyenv_post_install(){
-  if ! < /etc/environment grep -q "# pyenv" ; then
+  if ! < /etc/environment grep -q "pyenv" ; then
     echo "PATH=$PATH:$HOME/.pyenv/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims:$HOME/.pyenv/bin" | sudo tee /etc/environment > /dev/null
   fi
 }
