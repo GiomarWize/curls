@@ -69,6 +69,7 @@ clean(){
   sudo rm "$HOME"/pyenv_installer.sh
   echo -e "\nDone!"
   echo "pyenv has been installed along with the following versions of the Python interpreter:\n$(pyenv global)"
+  echo "\nMaybe you need reboot your system to load new changes in PATH."
 }
 
 # Install pyenv environment with python versions
