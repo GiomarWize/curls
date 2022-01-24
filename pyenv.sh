@@ -45,17 +45,9 @@ pyenv_install(){
 
 # Setting pyenv in User environment, PATH.
 pyenv_post_install(){
-  if ! < "$HOME"/.bashrc grep -q "# pyenv Config" ; then
-    {
-      echo '# pyenv Config'
-      echo 'export PYENV_ROOT="$HOME/.pyenv"'
-      echo 'export PATH="$PYENV_ROOT/bin:$PATH"'
-      echo 'if which pyenv > /dev/null; then'
-      echo '  eval "$(pyenv init -)"'
-      echo '  eval "$(pyenv init --path)"'
-      echo '  eval "$(pyenv virtualenv-init -)"'
-      echo 'fi'
-    } >> "$HOME"/.bashrc
+  if ! < /etc/environment grep -q "pyenv" ; then
+    echo "PATH=$PATH:$HOME/.pyenv/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims:$HOME/.pyenv/bin" | sudo tee /etc/environment > /dev/null
+    source /etc/environment
   fi
 }
 
@@ -75,7 +67,6 @@ python_versions_setglobally(){
 # Remove pyenv script installer
 clean(){
   sudo rm "$HOME"/pyenv_installer.sh
-  source /etc/environment
   echo -e "\nDone!"
   echo "pyenv has been installed along with the following $(pyenv global) versions of the Python interpreter."
 }
