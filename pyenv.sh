@@ -42,17 +42,8 @@ pyenv_install(){
 }
 
 pyenv_post_install(){
-  if ! < /etc/bash.bashrc grep -q "# pyenv Config" ; then
-    {
-      echo '# pyenv Config'
-      echo 'export PYENV_ROOT="/home/jenkins/.pyenv"'
-      echo 'export PATH="$PYENV_ROOT/bin:$PATH"'
-      echo 'if which pyenv > /dev/null; then'
-      echo '  eval "$(pyenv init -)"'
-      echo '  eval "$(pyenv init --path)"'
-      echo '  eval "$(pyenv virtualenv-init -)"'
-      echo 'fi'
-    } >> /etc/bash.bashrc
+  if ! < /etc/environment grep -q "# pyenv" ; then
+    echo "PATH=$PATH:$HOME/.pyenv/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims:$HOME/.pyenv/bin" | sudo tee /etc/environment > /dev/null
   fi
 }
 
