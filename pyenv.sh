@@ -66,7 +66,7 @@ python_versions_setglobally(){
 
 # Remove pyenv script installer
 clean(){
-  sudo rm "$HOME"/pyenv_installer.sh
+  rm "$HOME"/pyenv_installer.sh
   echo -e "\nDone!"
   echo -e "pyenv has been installed along with the following versions of the Python interpreter:\n$(pyenv global)"
   echo -e "\nMaybe you need reboot your system to load new changes in PATH."
